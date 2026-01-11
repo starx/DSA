@@ -1,0 +1,27 @@
+debug_mode = False
+def dprint(msg):
+    if debug_mode:
+        print(msg)
+        
+def run_test(solution_class_obj, solution_name, test_cases, debug: bool):
+
+    import time
+    
+    debug_mode = debug
+    solution_method = getattr(solution_class_obj, solution_name)
+
+    for case_id in test_cases:
+        case = test_cases[case_id]
+        input = case['test']
+        expected = case['expected']    
+    
+        start = time.perf_counter()
+        result = solution_method(*input)
+        success = result == expected
+        end = time.perf_counter()
+        exec_time = end-start
+        print(f"{case_id} " + ("passed" if success else "failed") + f"\ntime taken: {exec_time}\n\n")
+        if not success:
+            print(f"Expected:\n\n{expected}\n\nResult:\n\n{result}\n\n")
+
+        print("----------------------------\n\n")
