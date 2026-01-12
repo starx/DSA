@@ -12,7 +12,7 @@ def run_test(solution_class_obj, solution_name, test_cases, debug: bool):
 
     for case_id in test_cases:
         case = test_cases[case_id]
-        input = case['test']
+        input = case['input']
         expected = case['expected']    
     
         start = time.perf_counter()
