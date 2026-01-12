@@ -32,7 +32,7 @@ edge cases:
 """
 
 class GroupAnnagrams:
-    def sol1(self, source_list: list):
+    def sol1_iterative_brute_force(self, source_list: list):
         result = []
         copy_list = source_list.copy()
 
@@ -65,7 +65,7 @@ class GroupAnnagrams:
 
         return result
 
-    def sol2(self, source_list: list):
+    def sol2_total_ascii_val_as_key(self, source_list: list):
         result: dict[str: list] = {}
         for item in source_list:
             ascii_values = [ord(ch) for ch in item]
@@ -81,7 +81,7 @@ class GroupAnnagrams:
         
         return list(result.values())
 
-    def sol3(self, source_list: list):
+    def sol3_sorted_letter_as_key(self, source_list: list):
         result: dict[str: list] = {}
         for item in source_list:
             item_key = ''.join(sorted(item))
@@ -105,7 +105,7 @@ class GroupAnnagrams:
             
         return '.'.join(str(i) for i in charset_signature_base)
     
-    def sol4(self, source_list: list):
+    def sol4_charset_signature_as_key(self, source_list: list):
         result: dict[str: list] = {}
         for item in source_list:
             item_key = self.sol4_signature(item)
