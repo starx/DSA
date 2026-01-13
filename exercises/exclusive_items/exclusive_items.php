@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-require_once "test_runner.php";
+require_once "../test_runner.php";
 
 class ExclusiveItems {
     public function sol1_bruteforce(array $a, array $b) {
