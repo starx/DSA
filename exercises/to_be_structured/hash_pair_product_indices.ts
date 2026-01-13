@@ -1,4 +1,4 @@
-import { dprint, run_test, TestCases } from "./test_runner";
+import { dprint, run_test, TestCases } from "../test_runner";
 
 class PairProduct {
     sol1(numbers: number[], target: number): [number, number] | undefined {

@@ -1,4 +1,4 @@
-import { run_test, TestCases } from "./test_runner";
+import { run_test, TestCases } from "../test_runner";
 
 class AllUnique {
     sol1(arr: string[]): boolean {
