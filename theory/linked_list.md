@@ -58,7 +58,29 @@ node1.next = node2;
 node2.next = node3;
 
 const linkedList = {
-current: node1
+    current: node1
+};
+
+```
+
+Javascript (using class)
+
+```js
+class Node {
+    constructor(value, next = null§) {
+        this.value = value;
+        this.next = next;
+    }
+}
+const node1 = new Node("abc");
+const node2 = new Node("def");
+const node3 = new Node("ghi");
+
+node1.next = node2;
+node2.next = node3;
+
+const linkedList = {
+    current: node1
 };
 
 ```
