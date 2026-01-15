@@ -67,7 +67,7 @@ Javascript (using class)
 
 ```js
 class Node {
-    constructor(value, next = null§) {
+    constructor(value, next = null) {
         this.value = value;
         this.next = next;
     }
