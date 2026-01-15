@@ -1,2 +1,0 @@
-## Linked lists Traversal
-
