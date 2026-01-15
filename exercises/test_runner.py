@@ -25,3 +25,34 @@ def run_test(solution_class_obj, solution_name, test_cases, debug: bool):
             print(f"Expected:\n\n{expected}\n\nResult:\n\n{result}\n\n")
 
         print("----------------------------\n\n")
+
+# Setup
+#
+
+# from test_runner import run_test
+
+# class ExampleExercise:
+#     def sol1_desc(self, a):
+#         pass
+
+
+# test_cases = {
+#     "case_1": {
+#         "input": [...],
+#         "expected": ...,
+#     },
+#     ...
+# }
+
+# run_test(
+#     ExampleExercise(),
+#     "sol1_desc",
+#     test_cases,
+#     False
+# )
+
+# Usage:
+#
+# Execute using the following:
+#
+# python3 -m <exercise_name>.<exercise_file>.py
