@@ -15,6 +15,7 @@ class LinkedListFind:
                 return True
             else:
                 return self.sol1(head.next, search)
+        return False
 
 # Test cases
 a = Node("a")
