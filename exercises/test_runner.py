@@ -55,4 +55,4 @@ def run_test(solution_class_obj, solution_name, test_cases, debug: bool):
 #
 # Execute using the following:
 #
-# python3 -m <exercise_name>.<exercise_file>.py
+# python3 -m <exercise_name>.<exercise_file>
