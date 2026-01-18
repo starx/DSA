@@ -16,13 +16,38 @@ class LinkedListGetValueIndex {
         return null;
     }
 
-    public function sol2_recursive(?Node $head, int $target, int $i = 0): mixed {
+
+    /**
+     * As we traverse from head, we assume we are in the starting point (i = 0)
+     * Using target, we track how many steps FORWARD we must travel to find the target.
+     * 
+     * This uses a forward-measuring mental model (counting steps taken)
+     */
+    public function sol2_recursive_measure_forward(?Node $head, int $target, int $i = 0): mixed {
         
         if($head) {
             if($i === $target) {
                 return $head->value;
             } else {
                 return $this->sol2_recursive($head->next, $target, ++$i);
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Similar to sol2_recursive_measure_forward.
+     * 
+     * But, This uses a reducing the remaining distance on each recursion,
+     * rather than forward-measuring mental model 
+     */
+    public function sol3_recursive_measure_backward(?Node $head, int $target): mixed {
+        
+        if($head) {
+            if($target === 0) {
+                return $head->value;
+            } else {
+                return $this->sol3_recursive_measure_backward($head->next, --$target);
             }
         }
         return null;
@@ -68,7 +93,7 @@ $testCases = [
 
 run_test(
     new LinkedListGetValueIndex(),
-    "sol2_recursive",
+    "sol3_recursive_measure_backward",
     $testCases,
     false
 );
