@@ -6,7 +6,7 @@ def dprint(msg):
 def run_test(solution_class_obj, solution_name, test_cases, debug: bool):
 
     import time
-    
+    global debug_mode
     debug_mode = debug
     solution_method = getattr(solution_class_obj, solution_name)
 
