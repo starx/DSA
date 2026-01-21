@@ -10,6 +10,11 @@
 - Arrays provide **O(1)** random access via indexing, but **O(n)** insertion and deletion due to element shifting.
 - Linked lists require **O(n)** access and traversal, but allow **O(1)** insertion and deletion when the position (node reference) is already known.
 
+**Some terminologies**:
+
+- Head: The first node in the list
+- Tail: The last node in the list
+
 ## Definition
 
 Python (using class)
