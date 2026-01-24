@@ -6,27 +6,33 @@ class LongestStreak:
     def sol1_iterative(self, head: Node) -> int:
         current = head # At first run current pointer is head of the list
  
-        lastValue: None|any = None
-        currentStreak: int = 0
-        longestStreak: int = 0
+        lastValue: None|Any = None
+        currentStreak: None|int = None
+        longestStreak: None|int = None
         while(current):
             cValue = current.value
 
-            if not lastValue and not longestStreak:
+            if lastValue is None and currentStreak is None and longestStreak is None:
                 lastValue = cValue
                 currentStreak = 1
                 longestStreak = 1
+                
             else:
+                assert currentStreak is not None
+                assert longestStreak is not None
+
                 if lastValue == cValue:
                     currentStreak += 1
                     if currentStreak > longestStreak:
-                        longestStreak += 1
+                        longestStreak += currentStreak
                 else:
                     currentStreak = 1
 
                 lastValue = cValue
 
             current = current.next # Advance to next item
+        
+        assert longestStreak is not None
         return longestStreak
 
 
