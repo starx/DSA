@@ -19,7 +19,8 @@ export function run_test(
   solutionClassObj: any,
   solutionName: string,
   testCases: TestCases,
-  debug: boolean
+  debug: boolean,
+  resultModifier?: (value: any) => any
 ): void {
   debug_mode = debug;
 
@@ -36,7 +37,10 @@ export function run_test(
       continue;
     }
 
-    const result = fn.apply(solutionClassObj, input);
+    let result = fn.apply(solutionClassObj, input);
+    if(resultModifier) {
+      result = resultModifier(result);
+    }
     const success = deepEqual(result, expected);
     const end = performance.now();
     const execTimeMs = end - start;
