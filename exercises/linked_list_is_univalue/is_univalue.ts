@@ -1,4 +1,4 @@
-import { Node } from "../linked_list";
+import { Node } from "../linked_list_ts";
 import { run_test, TestCases, dprint } from "../test_runner";
 
 class IsUnivalue<T> {

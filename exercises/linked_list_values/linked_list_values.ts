@@ -1,4 +1,4 @@
-import { Node } from "../linked_list";
+import { Node } from "../linked_list_ts";
 import { dprint, run_test, TestCases } from "../test_runner";
 
 class LinkedListValues {

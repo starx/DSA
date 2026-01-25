@@ -1,5 +1,5 @@
 import { dprint, run_test, TestCases } from "../test_runner"
-import { Node } from "../linked_list"
+import { Node } from "../linked_list_ts"
 
 class ReverseList<T> {
     sol1_iterative(head: Node<T>|null): Node<T> {
