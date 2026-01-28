@@ -12,7 +12,7 @@ from __future__ import annotations
 #         self.right = right
 
 from dataclasses import dataclass
-from typing import Generic, TypeVar
+from typing import Generic, TypeVar, List
 
 T = TypeVar("T")
 
@@ -21,3 +21,13 @@ class Node(Generic[T]):
     value: T
     left: Node[T]|None = None
     right: Node[T]|None = None
+
+def list_to_depth_first_value_array(root: Node[T]|None) -> List[T]:
+    values: List[T] = []
+
+    if root:
+        values.append(root.value)
+        values.extend(list_to_depth_first_value_array(root.left))
+        values.extend(list_to_depth_first_value_array(root.right))
+
+    return values
