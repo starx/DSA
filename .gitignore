@@ -3,3 +3,4 @@ node_modules
 vendor
 exercises/package-lock.json
 exercises/package.json
+__pycache__
