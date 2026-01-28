@@ -1,9 +1,18 @@
+from collections.abc import Callable
+from typing import Any
+
 debug_mode = False
 def dprint(msg):
     if debug_mode:
         print(msg)
         
-def run_test(solution_class_obj, solution_name, test_cases, debug: bool):
+def run_test(
+        solution_class_obj, 
+        solution_name, 
+        test_cases, 
+        debug: bool,
+        resultModifier: Callable[[Any], Any] | None = None
+    ):
 
     import time
     global debug_mode
@@ -17,6 +26,9 @@ def run_test(solution_class_obj, solution_name, test_cases, debug: bool):
     
         start = time.perf_counter()
         result = solution_method(*input)
+        if resultModifier is not None:
+            result = resultModifier(result)
+
         success = result == expected
         end = time.perf_counter()
         exec_time = end-start
