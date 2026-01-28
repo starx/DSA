@@ -31,3 +31,21 @@ def list_to_depth_first_value_array(root: Node[T]|None) -> List[T]:
         values.extend(list_to_depth_first_value_array(root.right))
 
     return values
+
+def list_to_breadth_first_value_array(self, root: Node[T]|None)->List[T]:
+    values: List[T] = []
+    from collections import deque
+    queue: deque = deque()
+    if root:
+        queue.append(root)
+    
+    while queue:
+        currNode: Node = queue.popleft()
+        values.append(currNode.value)
+
+        if currNode.left is not None:
+            queue.append(currNode.left)
+
+        if currNode.right is not None:
+            queue.append(currNode.right)                           
+    return values
