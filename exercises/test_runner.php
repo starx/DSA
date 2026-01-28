@@ -9,7 +9,13 @@ function dprint($msg) {
     }
 }
 
-function run_test($solution_class_obj, $solution_name, $test_cases, bool $debug) {
+function run_test(
+    $solution_class_obj, 
+    string $solution_name, 
+    array $test_cases, 
+    bool $debug,
+    ?callable $resultOverride = null
+) {
     global $debug_mode;
     $debug_mode = $debug;
 
@@ -19,6 +25,10 @@ function run_test($solution_class_obj, $solution_name, $test_cases, bool $debug)
     
         $start = microtime(true);
         $result = call_user_func_array([$solution_class_obj, $solution_name], $input);
+        if($resultOverride) {
+            $result = $resultOverride($result);
+        }
+        
         $success = $result === $expected;
         $end = microtime(true);
         $exec_time = $end-$start;
