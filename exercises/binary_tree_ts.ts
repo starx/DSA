@@ -10,16 +10,16 @@ export class Node<T> {
 
 }
 
-function list_to_depth_first_value_array<T>(root: Node<T>): T[] {
+function tree_to_value_array_depth_first<T>(root: Node<T>): T[] {
     let values: T[] = [];
     if(root) {
       values.push(root.value);
 
       if(root.left) {
-        values.push(...list_to_depth_first_value_array(root.left));
+        values.push(...tree_to_value_array_depth_first(root.left));
       }
       if (root.right) {
-        values.push(...list_to_depth_first_value_array(root.right));
+        values.push(...tree_to_value_array_depth_first(root.right));
       }
     }
     return values;    

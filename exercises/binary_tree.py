@@ -22,17 +22,17 @@ class Node(Generic[T]):
     left: Node[T]|None = None
     right: Node[T]|None = None
 
-def list_to_depth_first_value_array(root: Node[T]|None) -> List[T]:
+def tree_to_value_array_depth_first(root: Node[T]|None) -> List[T]:
     values: List[T] = []
 
     if root:
         values.append(root.value)
-        values.extend(list_to_depth_first_value_array(root.left))
-        values.extend(list_to_depth_first_value_array(root.right))
+        values.extend(tree_to_value_array_depth_first(root.left))
+        values.extend(tree_to_value_array_depth_first(root.right))
 
     return values
 
-def list_to_breadth_first_value_array(self, root: Node[T]|None)->List[T]:
+def tree_to_value_array_breadth_first(self, root: Node[T]|None)->List[T]:
     values: List[T] = []
     from collections import deque
     queue: deque = deque()
