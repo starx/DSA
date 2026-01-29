@@ -10,7 +10,7 @@ class Node {
     }
 }
 
-public function tree_to_value_array_depth_first(?Node $root): array {
+function tree_to_value_array_depth_first(?Node $root): array {
     $values = [];
     if ($root !== null) {
         $values[] = $root->value;
