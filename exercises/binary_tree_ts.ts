@@ -43,5 +43,4 @@ function tree_to_value_array_breadth_first<T>(root: Node<T> | null): T[] {
     }
 
     return values;
-  }
 }
