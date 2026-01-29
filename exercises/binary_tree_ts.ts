@@ -24,3 +24,24 @@ function tree_to_value_array_depth_first<T>(root: Node<T>): T[] {
     }
     return values;    
 }
+
+function tree_to_value_array_breadth_first<T>(root: Node<T> | null): T[] {
+    const values: T[] = [];
+    const queue: Array<Node<T>> = [];
+
+    if (root) queue.push(root);
+
+    let i = 0; // read index
+    while (i < queue.length) {
+      const currNode = queue[i];
+      values.push(currNode.value);
+
+      if (currNode.left) queue.push(currNode.left);
+      if (currNode.right) queue.push(currNode.right);
+
+      i++;
+    }
+
+    return values;
+  }
+}
