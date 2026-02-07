@@ -32,12 +32,27 @@ class MaxPathSum {
         if(!is_null($sumRight)) return $sumRight;
         return $pathSum;
     }
+
+    function sol2_recursive_structural(?Node $root): int {
+        if ($root === null) {
+            return PHP_INT_MIN; // equivalent of -Infinity for max comparison
+        }
+
+        if ($root->left === null && $root->right === null) {
+            return $root->value;
+        }
+
+        return $root->value + max(
+            $this->sol2_recursive_structural($root->left),
+            $this->sol2_recursive_structural($root->right)
+        );
+    }
 }
 
 $test_cases = require_once(__DIR__ . "/test_cases.php");
 run_test(
     new MaxPathSum(),
-    "sol1",
+    "sol2_recursive_structural",
     $test_cases,
     false
 );
