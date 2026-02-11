@@ -41,11 +41,38 @@ class BottomRightValues<T> {
         return result.bottomRightValue;
 
     }
+
+    // in bf access, the last element is always the most bottom right value of that depth
+    // so the last element when the traversing the whole tree is done
+    // is the expected result
+    sol2_bfs_iterative(root: Node<T>): T {
+        const queue: Node<T>[] = [root];
+        let i = 0;
+
+        let lastValue: T = root.value;
+
+        while (i < queue.length) {
+            const curNode = queue[i];
+            i++;
+
+            lastValue = curNode.value;
+
+            if (curNode.left) {
+                queue.push(curNode.left);
+            }
+
+            if (curNode.right) {
+                queue.push(curNode.right);
+            }
+        }
+
+        return lastValue;
+    }
 }
 
 run_test(
     new BottomRightValues(),
-    'sol1',
+    'sol2_bfs_iterative',
     testCases,
     false
 );
