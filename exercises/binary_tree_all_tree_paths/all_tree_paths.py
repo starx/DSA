@@ -64,7 +64,6 @@ class AllTreePath(Generic[T]):
 
         dfs(root)
         return allPaths
-        
 
 run_test(
     AllTreePath(),
