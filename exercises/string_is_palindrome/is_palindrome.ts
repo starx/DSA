@@ -16,6 +16,10 @@ class IsPalindrome {
         }
         return true;
     }
+
+    sol2_reverse_comparison(input: string): boolean {
+      return input === [...input].reverse().join("");
+    }
 }
 
 export const testCases: TestCases = {
@@ -90,7 +94,7 @@ export const testCases: TestCases = {
 
 run_test(
     new IsPalindrome(),
-    'sol1_two_pointer',
+    'sol2_reverse_comparison',
     testCases,
     false
 )
